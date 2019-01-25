@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" href="squares.css">
+  <title>Squares</title>
+</head>
+<body>
+    <h1>The Square Demo</h1>
+    <div id="SquareContainer"></div>
+    <div id="ButtonContainer">
+        <button id='showall'>Show All The Squares</button>
+        <button id='hideall'>Hide All The Squares</button>
+    </div>
+    <script id="jsbin-javascript">
+    const colors = ['blue', 'green', 'yellow', 'orange'];
+
+    function generateDom(colors){
+        const sqdiv=document.querySelector('#SquareContainer');
+        const buttondiv=document.querySelector('#ButtonContainer');
+        
+        colors.forEach(function(color){
+            squareid= document.createElement('div');
+            squareid.setAttribute('id', 'squareid');
+            sqdiv.appendChild(squareid);
+            squareid.classList.add('square');
+            squareid.style.backgroundColor=color;
+            buttonid=document.createElement('button');
+            buttondiv.appendChild(buttonid);
+            buttonid.id=color;
+            buttonid.innerHTML=`Toggle ${color}`;
+            buttonid.addEventListener('click', function(){
+                if(squareid.style.display==='none'){
+                    squareid.style.display='';
+                }
+                else{
+                    squareid.style.display='none';
+                }
+            });
+        });
+
+        const showall=document.querySelector('#showall');
+        showall.addEventListener('click', function(){
+            document.querySelectorAll('#squareid').forEach(val=>val.style.display='');
+        });
+        const hideall=document.querySelector('#hideall');
+        hideall.addEventListener('click', function(){
+            document.querySelectorAll('#squareid').forEach(val=>val.style.display='none');
+        });
+    }
+    generateDom(colors);//should generate squares, buttons and event handlers
+
+    </script>
+
+
+
+
+
+</body>
+</html>
