@@ -21,12 +21,12 @@
         const buttondiv=document.querySelector('#ButtonContainer');
         
         colors.forEach(function(color){
-            squareid= document.createElement('div');
+            let squareid= document.createElement('div');
             squareid.setAttribute('id', 'squareid');
             sqdiv.appendChild(squareid);
             squareid.classList.add('square');
             squareid.style.backgroundColor=color;
-            buttonid=document.createElement('button');
+            let buttonid=document.createElement('button');
             buttondiv.appendChild(buttonid);
             buttonid.id=color;
             buttonid.innerHTML=`Toggle ${color}`;
